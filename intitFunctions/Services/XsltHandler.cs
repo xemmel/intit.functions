@@ -1,14 +1,17 @@
 using System.Xml;
+using Microsoft.Extensions.Logging;
 
 namespace intitFunctions;
 
 public class XsltHandler : IXsltHandler
 {
     private readonly IBlobHander _blobHander;
+    private readonly ILogger<XsltHandler> _logger;
 
-    public XsltHandler(IBlobHander blobHander)
+    public XsltHandler(IBlobHander blobHander, ILoggerFactory loggerFactory)
     {
         _blobHander = blobHander;
+        _logger = loggerFactory.CreateLogger<XsltHandler>();
     }
     public async Task<Stream> TransformAsync(
                         string containerName, 
@@ -20,6 +23,7 @@ public class XsltHandler : IXsltHandler
                                                 containerName: containerName,
                                                 blobName: xsltName,
                                                 cancellationToken: cancellationToken);
+        _logger.LogInformation($"Transformed xml");
         return Transform(
                     xslt: xsltStream,
                     xml: xml);

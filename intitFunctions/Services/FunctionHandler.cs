@@ -13,11 +13,20 @@ public class FunctionHandler : IFunctionHandler
     }
     public string? GetHeader(HttpRequestData request, string key)
     {
-        var result = request
+        try
+        {
+                     var result = request
                         .Headers
                         .GetValues(name: key)
                         ?.FirstOrDefault();
         return result;
+        }
+        catch (System.Exception)
+        {
+            
+            return null;
+        }
+
     }
 
     public Stream GetBodyAsStream(HttpRequestData request)
