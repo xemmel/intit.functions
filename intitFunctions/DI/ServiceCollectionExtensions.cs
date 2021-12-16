@@ -7,6 +7,10 @@ public static class ServiceCollectionExtensions
 
         services
             .AddScoped<IFunctionHandler, FunctionHandler>()
+            .AddScoped<IXsltHandler, XsltHandler>()
+            .AddScoped<IBlobHander, BlobHandler>()
+
+
 
             ;
         return services;
