@@ -10,7 +10,9 @@ namespace intitFunctions
         public static void Main()
         {
             var host = new HostBuilder()
-                .ConfigureFunctionsWorkerDefaults()
+                .ConfigureFunctionsWorkerDefaults(
+                        s => s.Services.AddIntitFunctions()
+                )
                 .Build();
 
             host.Run();
