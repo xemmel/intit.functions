@@ -30,20 +30,20 @@ namespace intitFunctions
                                 .GetBodyAsStream(request: req);
             string? xsltName = _functionHandler
                                 .GetHeader(request: req,key: "xslt");
-            
+            if (string.IsNullOrWhiteSpace(xsltName))
+            {
+                var responseError = req.CreateResponse(HttpStatusCode.BadRequest);
+                return responseError;
+            }
+
             _logger.LogInformation($"xslt: {xsltName}");
 
             string? containerName = _functionHandler
                                     .GetHeader(request: req, key: "xsltContainer");
+                                    
             containerName ??= "xslt";
             
-            // var resultStream = await _xsltHandler
-            //                             .TransformAsync(
-            //                                 containerName: containerName,
-            //                                 xsltName: xsltName,
-            //                                 xml: xmlStream);
-            //StreamReader streamReader = new StreamReader(resultStream);
-           // var result = streamReader.ReadToEnd();                               
+                     
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.Headers.Add("Content-Type", "text/xml; charset=utf-8");
             await _xsltHandler

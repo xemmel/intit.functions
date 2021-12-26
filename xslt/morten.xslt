@@ -4,6 +4,9 @@
             <Id>
                 <xsl:value-of select="id" />
             </Id>
+            <Name>
+                <xsl:text>Clara</xsl:text>
+            </Name>
         </Output>
     </xsl:template>
 </xsl:stylesheet>
