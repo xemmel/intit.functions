@@ -9,7 +9,7 @@ public static class ServiceCollectionExtensions
             .AddScoped<IFunctionHandler, FunctionHandler>()
             .AddScoped<IXsltHandler, XsltHandler>()
             .AddScoped<IBlobHander, BlobHandler>()
-
+            .AddScoped<IRegexHandler, RegexHandler>()
 
 
             ;
