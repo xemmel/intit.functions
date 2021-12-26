@@ -5,6 +5,7 @@ $appName = "intitfunctions";
 $rgName = "rg-$($appName)";
 $location = "westeurope";
 $storageAccountName = "st$($appName)";
+$functionAppName = "func-$($appName)";
 
 az group create -n $rgName -l $location --tags temp=false;
 
@@ -33,7 +34,7 @@ $storageId;
 
 ## Create Function App (6)!
 
-$functionAppName = "func-$($appName)";
+
 $functionAppId = az functionapp create -g $rgName -n $functionAppName `
 	-s $storageId --app-insights $appInsightName `
 	--runtime dotnet-isolated --functions-version 4 `

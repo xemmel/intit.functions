@@ -37,16 +37,21 @@ namespace intitFunctions
                                     .GetHeader(request: req, key: "xsltContainer");
             containerName ??= "xslt";
             
-            var resultStream = await _xsltHandler
-                                        .TransformAsync(
-                                            containerName: containerName,
-                                            xsltName: xsltName,
-                                            xml: xmlStream);
+            // var resultStream = await _xsltHandler
+            //                             .TransformAsync(
+            //                                 containerName: containerName,
+            //                                 xsltName: xsltName,
+            //                                 xml: xmlStream);
             //StreamReader streamReader = new StreamReader(resultStream);
            // var result = streamReader.ReadToEnd();                               
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.Headers.Add("Content-Type", "text/xml; charset=utf-8");
-            response.Body = resultStream;
+            await _xsltHandler
+                    .TransformAsync
+                        (containerName: containerName,
+                        xsltName:xsltName,
+                        xml: xmlStream,
+                        result: response.Body);
             return response;
         }
 
