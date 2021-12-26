@@ -55,7 +55,7 @@ az storage blob upload --account-name $storageAccountName `
 
 $url = "https://func-intitfunctions.azurewebsites.net/api/transform?code=ZosJOL1C/ezRUUWIpbbunywwq9rJzkOQ7LKG3IO2ejoe/u3RQ9zzsg==";
 
-$url = "http://localhost:7071/api/Transform" ;
+# $url = "http://localhost:7071/api/Transform" ;
 invoke-webrequest -Uri $url  -method Post -Headers @{ "xslt" = "morten.xslt"; } -body "<Input />" | Select-Object -expandProperty Content;
 
 ```
