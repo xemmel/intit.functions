@@ -23,10 +23,13 @@ public class XsltHandler : IXsltHandler
                                                 containerName: containerName,
                                                 blobName: xsltName,
                                                 cancellationToken: cancellationToken);
-        _logger.LogInformation($"Transformed xml");
-        return Transform(
+        _logger.LogInformation($"Start transform. Length: {xml.Length}");
+        var result = Transform(
                     xslt: xsltStream,
                     xml: xml);
+        _logger.LogInformation($"End transform. Length: {result.Length}");
+        
+        return result;
     }
     public Stream Transform(Stream xslt, Stream xml)
     {
