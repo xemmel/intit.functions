@@ -1,0 +1,60 @@
+<root>
+    <rows>
+        <Id>0010O00001ilnVeQAI</Id>
+        <AccountNumber>222740</AccountNumber>
+        <Arcus__c />
+        <AutoAccountNo__c>222740</AutoAccountNo__c>
+        <BillingCity>Dürbheim</BillingCity>
+        <BillingPostalCode>78554</BillingPostalCode>
+        <BillingState />
+        <BillingStreet>Lachenäcker 1</BillingStreet>
+        <Country_List__c>Germany</Country_List__c>
+        <CPP_Classification__c />
+        <CPP_Discount__c />
+        <CPP_Threshold__c />
+        <Create_in_Navision__c>false</Create_in_Navision__c>
+        <CreationDateNavision__c>2019-06-09T00:00:00Z</CreationDateNavision__c>
+        <Credit_Limit__c />
+        <CurrencyIsoCode>DKK</CurrencyIsoCode>
+        <Delivery_term_change_threshold__c />
+        <Direct_Enduser_Support__c>false</Direct_Enduser_Support__c>
+        <Distributor__c />
+        <Distributor_Direct_Sales__c>false</Distributor_Direct_Sales__c>
+        <Do_not_show_in_home_country__c>false</Do_not_show_in_home_country__c>
+        <DPP_Discount__c />
+        <Elite_Care_Expiration_Date__c />
+        <Fax />
+        <Flat_rate_discount_in__c />
+        <Geographical_Coverage__c />
+        <Husky_addendum_signed__c>false</Husky_addendum_signed__c>
+        <Industry />
+        <Instant_back_end_pct__c />
+        <LastModifiedById>0055t000000cgGSAAY</LastModifiedById>
+        <LastModifiedDate>2021-12-17T11:54:32Z</LastModifiedDate>
+        <MAP__c />
+        <Milestone_Account_ID__c />
+        <MSP__c />
+        <MTP__c />
+        <MTS_Service_Level__c />
+        <Name>Baumschule Häring</Name>
+        <NAV_Account_ID__c>222740</NAV_Account_ID__c>
+        <OEM__c />
+        <OwnerId>0050O000007DfYGQA0</OwnerId>
+        <ParentId />
+        <Phone />
+        <Premium_Care_Expiration_Date__c />
+        <Price_Book__c />
+        <Region__c>EMEA</Region__c>
+        <Reseller__c />
+        <SystemModstamp>2021-12-17T11:54:32Z</SystemModstamp>
+        <VAT_no__c />
+        <Webshop_Payment__c />
+        <Webshop_Payment_Terms__c />
+        <Webshop_Products__c>Standard</Webshop_Products__c>
+        <Website>http://</Website>
+        <Where_To_Buy_Show__c>false</Where_To_Buy_Show__c>
+        <Technology_Partner__c />
+        <Marketplace_Enrolled__c>false</Marketplace_Enrolled__c>
+        <TAX_ID__c />
+    </rows>
+</root>

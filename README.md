@@ -12,7 +12,7 @@ az group create -n $rgName -l $location --tags temp=false;
 
 ## Monitor
 
-$monitorName = "la-$($appName)";
+$monitorName = "loga-$($appName)";
 $monitorId = az monitor log-analytics workspace create `
 	-g $rgName -n $monitorName `
 	--query id -o tsv;
@@ -55,6 +55,8 @@ az storage blob upload --account-name $storageAccountName `
     --container-name xslt --file ".\xslt\morten.xslt"
 
 $url = "https://func-intitfunctions.azurewebsites.net/api/transform?code=ZosJOL1C/ezRUUWIpbbunywwq9rJzkOQ7LKG3IO2ejoe/u3RQ9zzsg==";
+
+$url = "https://func-milestonepoc.azurewebsites.net/api/Transform?code=izxw6lYp3rpdo18lbScgZ8UY7ofwxHgMnIb0ic1BKtKiKiOaNnsRag==";
 
 # $url = "http://localhost:7071/api/Transform" ;
 invoke-webrequest -Uri $url  -method Post -Headers @{ "xslt" = "morten.xslt"; } -body "<Input />" | Select-Object -expandProperty Content;

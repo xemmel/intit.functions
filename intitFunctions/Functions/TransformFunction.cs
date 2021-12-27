@@ -39,7 +39,7 @@ public class TransformFunction
 
 
             var response = req.CreateResponse(HttpStatusCode.OK);
-            response.Headers.Add("Content-Type", "text/xml; charset=utf-8");
+            response.Headers.Add("content-type", "application/xml; charset=utf-8");
             await _xsltHandler
                     .TransformAsync
                         (containerName: containerName,
