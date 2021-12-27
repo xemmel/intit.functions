@@ -61,3 +61,10 @@ invoke-webrequest -Uri $url  -method Post -Headers @{ "xslt" = "morten.xslt"; } 
 
 ```
 
+### Call regex
+
+```powershell
+# $url = "http://localhost:7071/api/Regex";
+invoke-webrequest -Uri $url  -method Post -Headers @{ "pattern" = "la"; } -body "Morten la Cour. Clara la Cour" | Select-Object -expandProperty Content;
+```
+

@@ -8,3 +8,7 @@ global using System.Xml.Xsl;
 global using System;
 global using System.Collections.Generic;
 global using System.Text.RegularExpressions;
+global using System.Net;
+global using Microsoft.Azure.Functions.Worker;
+global using Microsoft.Extensions.Logging;
+global using System.Text;
