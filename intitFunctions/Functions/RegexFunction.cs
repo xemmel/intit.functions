@@ -4,7 +4,7 @@ public class RegexFunction
 {
     private readonly IRegexHandler _regexHandler;
     private readonly IFunctionHandler _functionHandler;
-    private readonly ILogger<Transform> _logger;
+    private readonly ILogger<RegexFunction> _logger;
 
     public RegexFunction(
                 IRegexHandler regexHandler,
@@ -13,7 +13,7 @@ public class RegexFunction
     {
         _regexHandler = regexHandler;
         _functionHandler = functionHandler;
-        _logger = loggerFactory.CreateLogger<Transform>();
+        _logger = loggerFactory.CreateLogger<RegexFunction>();
     }
     [Function("Regex")]
     public async Task<HttpResponseData> Run(
@@ -26,6 +26,7 @@ public class RegexFunction
             var pattern = _functionHandler.GetRequiredHeader(request: req, key: "pattern");
             var result = _regexHandler
                             .GetMatches(input: body, pattern: pattern);
+            _logger.LogInformation($"Found {result.Count()} matches");
             var response = req.CreateResponse(HttpStatusCode.OK);
             await response.WriteAsJsonAsync<IEnumerable<RegexMatchModel>>(instance: result);
             return response;
