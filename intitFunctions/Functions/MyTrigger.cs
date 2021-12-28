@@ -20,17 +20,14 @@ public class MyTrigger
     }
 
     [Function("MyTrigger")]
-    public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
+    public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
-        var xslt = _functionHandler
-                        .GetHeader(request: req, key: "xslt");
-        _logger.LogInformation($"xslt: {xslt}");
-        var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+        var inputStream = _functionHandler.GetBodyAsStream(request: req);
+        var processStream = new DummyStream(inputStream);
 
-        response.WriteString($"Welcome to Azure Functions!\tVersion: {_functionHandler.GetVersion()}");
-
+        var response = req.CreateResponse();
+        response.Body = processStream;
         return response;
     }
 }
